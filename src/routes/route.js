@@ -31,7 +31,7 @@ router.get("/movies/:indexNumber", function(req, res){
 router.get("/shoes", function(req, res){
     let queryParams = req.query
     let brand = queryParams.brand
-    res.send("dummy response")
+    res.send("my new server is working fine and its awesome")
 })
 
 // uses query params
@@ -102,6 +102,28 @@ router.get("/films/:filmId", function(req, res){
        //if there is no match give an error response
        res.send("The film id doesn't match any movie")
 })
+
+router.post("/test-post", function(req,res){
+    res.send("first ever post api")
+})
+
+router.post("/test-post-2", function(req,res){
+   let user=req.body.user
+   let pwd = req.body.password
+
+   console.log(user,pwd)
+
+   
+    console.log(req.body)
+    res.send({ message:"hi", name:"Ram"})
+})
+
+router.post("/test-post-3", function(req,res){
+    let arr =[23, "functionUp"]
+    let ele= req.body.element
+    arr.push(ele)
+     res.send({ message:arr, status:true})
+ })
 
 module.exports = router;
 // adding this comment for no reason
